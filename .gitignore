@@ -1,0 +1,7 @@
+backend/bin/
+backend/venv/
+backend/__pycache__/
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+README - personal.md

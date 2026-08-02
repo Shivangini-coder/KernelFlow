@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-void-900 text-slate-200 font-body antialiased;
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(59, 130, 246, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(34, 211, 238, 0.08) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+/* Signature "signal trace" divider — a thin gradient line with a moving dot,
+   used sparingly between major sections. This is KernelFlow's one
+   recurring visual signature: the CPU timeline, echoed everywhere. */
+.signal-divider {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #22d3ee55, transparent);
+}
+
+.glass-panel {
+  @apply bg-void-800/60 border border-line backdrop-blur-xl;
+}
+
+.glass-card {
+  @apply bg-void-800/50 border border-line rounded-2xl backdrop-blur-xl;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.25);
+}
+
+/* Visible keyboard focus everywhere, per accessibility floor */
+:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* thin scrollbar for the process table */
+.thin-scroll::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: #22d3ee44;
+  border-radius: 4px;
+}
